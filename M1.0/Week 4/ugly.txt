@@ -1,0 +1,55 @@
+//Don't change or delete the try/catch block
+
+function display()
+{
+    try{
+        
+    // Get the value of ugly component 
+    // Check if it's a valid input or not. 
+    // IF valid, invoke checkUglyNumber() function and display the output statement using alert()
+    // IF invalid, display the corresponding output statement using alert()
+    var ugly=document.getElementById("ugly").value; 
+    if (ugly===null|| ugly===""){
+        alert("Please, specify an input");
+    }
+    else if (ugly<=0){
+        alert("Invalid Input");
+    }else if (ugly==1){
+        alert("1 is an ugly number");
+    }
+    else {
+        var b=checkUglyNumber(ugly);
+        if(b===true)
+        alert(ugly+" is an ugly number");
+        else
+           alert(ugly+" is not an ugly number");
+    }
+    
+    }catch(err){
+        document.getElementById("result").innerHTML="Function display: "+err;
+    }
+}
+function checkUglyNumber(num)
+{
+    try{
+        
+    // Check whether the num value is an ugly number or not. If yes, return true. Else, return false
+    while(num!==1){
+        if(num%2===0){
+            num/=2;
+        }
+        else if (num%3===0){
+            num/=3;
+        }
+        else if(num%5===0){
+            num/=5;
+        }
+        else {
+            return false;
+        }
+    }
+    return true;
+    }catch(err){
+        document.getElementById("result").innerHTML="Function checkUglyNumber: "+err;
+    }
+}
